@@ -85,9 +85,9 @@ public class ExtentCucumberFormatter implements Reporter, Formatter {
         } else if ("failed".equals(result.getStatus())) {
             String failed_StepName = testSteps.poll().getName();
             ExtentTestManager.getTest().log(LogStatus.FAIL, failed_StepName, result.getError());
-    		if (!getDriver().getContext().equals("NATIVE_APP")) {
-    			getDriver().context("NATIVE_APP");
-    		}
+            if (!getDriver().getContext().equals("NATIVE_APP")) {
+                getDriver().context("NATIVE_APP");
+            }
             File scrFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
             if (getDriver().toString().split(":")[0].trim().equals("AndroidDriver")) {
                 deviceModel = androidDevice.getDeviceModel(appiumParallelTest.device_udid);
