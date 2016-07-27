@@ -89,6 +89,7 @@ public class ExtentCucumberFormatter implements Reporter, Formatter {
             boolean contextChanged = false;
             if (getDriver().toString().split(":")[0].trim().equals("AndroidDriver") && !context.equals("NATIVE_APP")) {
                 getDriver().context("NATIVE_APP");
+                contextChanged = true;
             }
             File scrFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
             if (contextChanged) {
