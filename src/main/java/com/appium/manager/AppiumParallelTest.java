@@ -519,7 +519,8 @@ public class AppiumParallelTest extends TestListenerAdapter implements ITestList
         throws IOException, InterruptedException {
         String context = getDriver().getContext();
         boolean contextChanged = false;
-        if (getDriver().toString().split(":")[0].trim().equals("AndroidDriver") && !context.equals("NATIVE_APP")) {
+        if (getDriver().toString().split(":")[0].trim().equals("AndroidDriver") 
+                && !context.equals("NATIVE_APP")) {
             getDriver().context("NATIVE_APP");
             contextChanged = true;
         }
@@ -538,11 +539,12 @@ public class AppiumParallelTest extends TestListenerAdapter implements ITestList
         ExtentTestManager.logger(message);
     }
 
-    public void captureScreenShot(String screenShotName, int status, String className, String methodName)
-            throws IOException, InterruptedException {
+    public void captureScreenShot(String screenShotName, int status, String className, 
+            String methodName) throws IOException, InterruptedException {
         String context = getDriver().getContext();
         boolean contextChanged = false;
-        if (getDriver().toString().split(":")[0].trim().equals("AndroidDriver") && !context.equals("NATIVE_APP")) {
+        if (getDriver().toString().split(":")[0].trim().equals("AndroidDriver") 
+                && !context.equals("NATIVE_APP")) {
             getDriver().context("NATIVE_APP");
             contextChanged = true;
         }

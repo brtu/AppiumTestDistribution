@@ -87,7 +87,8 @@ public class ExtentCucumberFormatter implements Reporter, Formatter {
             ExtentTestManager.getTest().log(LogStatus.FAIL, failed_StepName, result.getError());
             String context = getDriver().getContext();
             boolean contextChanged = false;
-            if (getDriver().toString().split(":")[0].trim().equals("AndroidDriver") && !context.equals("NATIVE_APP")) {
+            if (getDriver().toString().split(":")[0].trim().equals("AndroidDriver") 
+                    && !context.equals("NATIVE_APP")) {
                 getDriver().context("NATIVE_APP");
                 contextChanged = true;
             }
