@@ -534,6 +534,7 @@ public class AppiumParallelTest extends TestListenerAdapter implements ITestList
         iOSCapabilities.setCapability(IOSMobileCapabilityType.AUTO_ACCEPT_ALERTS, true);
         iOSCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone");
         iOSCapabilities.setCapability(MobileCapabilityType.UDID, device_udid);
+        iOSCapabilities.setCapability("nativeInstrumentsLib", "true");
         return iOSCapabilities;
     }
 
