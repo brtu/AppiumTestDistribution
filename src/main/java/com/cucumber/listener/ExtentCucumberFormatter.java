@@ -220,12 +220,16 @@ public class ExtentCucumberFormatter implements Reporter, Formatter {
     }
 
     public void startAppiumServer(Scenario scenario, String[] tags) throws Exception {
+        initializeCapabilities();
         appium_driver = appiumParallelTest.createChildNodeWithCategory(scenario.getName(), tags)
                 .startAppiumServerInParallel("",
                         iosCapabilities, androidCapabilities);
         setWebDriver(appium_driver);
     }
 
+    protected void initializeCapabilities() {
+    }
+    
     public void background(Background background) {
 
     }
