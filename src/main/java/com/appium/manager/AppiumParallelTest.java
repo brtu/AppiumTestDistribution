@@ -618,6 +618,15 @@ public class AppiumParallelTest extends TestListenerAdapter implements ITestList
                 .setCapability(MobileCapabilityType.APP, prop.getProperty("ANDROID_APP_PATH"));
         androidCapabilities.setCapability(MobileCapabilityType.UDID, device_udid);
         androidCapabilities.setCapability("automationName", "uiautomator2");
+        
+        AvailablePorts ap = new AvailablePorts();
+        try {
+            int port = ap.getPort();
+            androidCapabilities.setCapability("systemPort", port);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
         return androidCapabilities;
     }
 
