@@ -79,7 +79,6 @@ public class ExtentCucumberFormatter implements Reporter, Formatter {
     };
 
     public ExtentCucumberFormatter()  {
-        initializeCapabilities();
         appiumParallelTest = new AppiumParallelTest();
         try {
             iosDevice = new IOSDeviceConfiguration();
@@ -225,10 +224,6 @@ public class ExtentCucumberFormatter implements Reporter, Formatter {
                 .startAppiumServerInParallel("",
                         iosCapabilities, androidCapabilities);
         setWebDriver(appium_driver);
-    }
-
-    public void initializeCapabilities() {
-        System.out.println("initCaps Test1");
     }
     
     public void background(Background background) {

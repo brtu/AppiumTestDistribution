@@ -617,6 +617,7 @@ public class AppiumParallelTest extends TestListenerAdapter implements ITestList
         androidCapabilities
                 .setCapability(MobileCapabilityType.APP, prop.getProperty("ANDROID_APP_PATH"));
         androidCapabilities.setCapability(MobileCapabilityType.UDID, device_udid);
+        androidCapabilities.setCapability("automationName", "uiautomator2");
         return androidCapabilities;
     }
 
