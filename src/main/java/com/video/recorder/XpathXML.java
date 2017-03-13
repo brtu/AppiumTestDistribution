@@ -34,7 +34,7 @@ public class XpathXML {
                 dBuilder = dbFactory.newDocumentBuilder();
 
                 String fileStr = String.join("\n", Files.readAllLines(inputFile.toPath()));
-                fileStr.replace("<!DOCTYPE suite SYSTEM \"http://testng.org/testng-1.0.dtd\">\n", "");
+                fileStr = fileStr.replace("<!DOCTYPE suite SYSTEM \"http://testng.org/testng-1.0.dtd\">", "");
                 FileWriter fooWriter = new FileWriter(inputFile, false); // true to append
                 fooWriter.write(fileStr);
                 fooWriter.close();
