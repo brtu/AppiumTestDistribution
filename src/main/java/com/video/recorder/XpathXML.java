@@ -5,9 +5,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -33,12 +31,6 @@ public class XpathXML {
 
                 dBuilder = dbFactory.newDocumentBuilder();
 
-                String fileStr = String.join("\n", Files.readAllLines(inputFile.toPath()));
-                fileStr = fileStr.replace("<!DOCTYPE suite SYSTEM \"http://testng.org/testng-1.0.dtd\">", "");
-                FileWriter fooWriter = new FileWriter(inputFile, false); // true to append
-                fooWriter.write(fileStr);
-                fooWriter.close();
-                
                 Document doc = dBuilder.parse(inputFile);
                 doc.getDocumentElement().normalize();
 
