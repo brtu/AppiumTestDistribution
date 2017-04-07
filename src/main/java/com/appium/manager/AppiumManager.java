@@ -48,7 +48,7 @@ public class AppiumManager {
         int selendroidPort = ap.getPort();
         AppiumServiceBuilder builder =
             new AppiumServiceBuilder().withAppiumJS(new File(prop.getProperty("APPIUM_JS_PATH")))
-                .withArgument(GeneralServerFlag.LOG_LEVEL, "info").withLogFile(new File(
+                .withArgument(GeneralServerFlag.LOG_LEVEL, "debug").withLogFile(new File(
                 System.getProperty("user.dir") + "/target/appiumlogs/" + deviceID
                     .replaceAll("\\W", "_") + "__" + methodName + ".txt"))
                 .withArgument(AndroidServerFlag.CHROME_DRIVER_PORT, Integer.toString(chromePort))
@@ -88,7 +88,7 @@ public class AppiumManager {
         int port = ap.getPort();
         AppiumServiceBuilder builder =
             new AppiumServiceBuilder().withAppiumJS(new File(prop.getProperty("APPIUM_JS_PATH")))
-                .withArgument(GeneralServerFlag.LOG_LEVEL, "info").withLogFile(new File(
+                .withArgument(GeneralServerFlag.LOG_LEVEL, "debug").withLogFile(new File(
                 System.getProperty("user.dir") + "/target/appiumlogs/" + deviceID
                     .replaceAll("\\W", "_") + "__" + methodName + ".txt"))
                 .withArgument(webKitProxy, webKitPort)
