@@ -53,6 +53,7 @@ public class ParallelThread {
     }
 
     public ParallelThread(List<String> validDeviceIds) throws IOException {
+        deviceManager = DeviceManager.getInstance();
         iosDevice = new IOSDeviceConfiguration();
         androidDevice = new AndroidDeviceConfiguration();
         configurationManager = ConfigurationManager.getInstance();
