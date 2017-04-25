@@ -53,7 +53,6 @@ public class ParallelThread {
     }
 
     public ParallelThread(List<String> validDeviceIds) throws IOException {
-        deviceManager = DeviceManager.getInstance();
         iosDevice = new IOSDeviceConfiguration();
         androidDevice = new AndroidDeviceConfiguration();
         configurationManager = ConfigurationManager.getInstance();
@@ -61,6 +60,7 @@ public class ParallelThread {
         iosDevice.setValidDevices(validDeviceIds);
         myTestExecutor = new MyTestExecutor();
         htmlReporter = new HtmlReporter();
+        deviceManager = DeviceManager.getInstance();
     }
     
     public boolean runner(String pack, List<String> tests) throws Exception {

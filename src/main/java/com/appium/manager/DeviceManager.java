@@ -36,7 +36,7 @@ public class DeviceManager {
                 if (iosDevice.getIOSUDID() != null) {
                     System.out.println("Adding iOS devices");
                     if (IOSDeviceConfiguration.validDeviceIds != null) {
-                        devices.addAll(IOSDeviceConfiguration.validDeviceIds);
+                        devices.addAll(iosDevice.getIOSUDID());
                     } else {
                         devices.addAll(IOSDeviceConfiguration.deviceUDIDiOS);
                     }
@@ -45,7 +45,7 @@ public class DeviceManager {
                     System.out.println("Adding Android devices");
                     if (AndroidDeviceConfiguration.validDeviceIds != null) {
                         System.out.println("Adding Devices from DeviceList Provided");
-                        devices.addAll(AndroidDeviceConfiguration.validDeviceIds);
+                        devices.addAll(androidDevice.getDeviceSerial());
                     } else {
                         devices.addAll(AndroidDeviceConfiguration.deviceSerial);
                     }
