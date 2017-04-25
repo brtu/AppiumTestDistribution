@@ -618,7 +618,7 @@ public class AppiumParallelTest extends TestListenerAdapter implements ITestList
                 .setCapability(MobileCapabilityType.APP, prop.getProperty("ANDROID_APP_PATH"));
         androidCapabilities.setCapability(MobileCapabilityType.UDID, device_udid);
         androidCapabilities.setCapability("automationName", "uiautomator2");
-        
+        androidCapabilities.setCapability(MobileCapabilityType.FULL_RESET, true);
         AvailablePorts ap = new AvailablePorts();
         try {
             int port = ap.getPort();
@@ -657,6 +657,7 @@ public class AppiumParallelTest extends TestListenerAdapter implements ITestList
         iOSCapabilities.setCapability(MobileCapabilityType.UDID, device_udid);
         iOSCapabilities.setCapability(IOSMobileCapabilityType.XCODE_CONFIG_FILE, prop.getProperty("XCODE_CONFIG_FILE"));
         iOSCapabilities.setCapability("updatedWDABundleId", prop.getProperty("UPDATED_WDA_BUNDLEID"));
+        iOSCapabilities.setCapability(MobileCapabilityType.FULL_RESET, true);
         return iOSCapabilities;
     }
 
