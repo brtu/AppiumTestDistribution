@@ -5,6 +5,8 @@ import io.appium.java_client.remote.IOSMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import com.appium.ios.IOSDeviceConfiguration;
+
 import java.io.IOException;
 
 /**
@@ -64,12 +66,13 @@ public class DeviceCapabilityManager {
 
     public synchronized DesiredCapabilities iosNative(String device_udid)
             throws InterruptedException,IOException {
+    	IOSDeviceConfiguration iosDevice = new IOSDeviceConfiguration();
         DesiredCapabilities iOSCapabilities = new DesiredCapabilities();
         System.out.println("Setting iOS Desired Capabilities:");
         iOSCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,
             "iOS");
         iOSCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,
-                 "10.0");
+        		iosDevice.getIOSDeviceProductVersion(device_udid));
         iOSCapabilities.setCapability(MobileCapabilityType.APP,
                 configurationManager.getProperty("IOS_APP_PATH"));
         iOSCapabilities.setCapability(IOSMobileCapabilityType.AUTO_ACCEPT_ALERTS, true);
