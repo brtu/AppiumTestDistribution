@@ -219,8 +219,11 @@ public class AppiumParallelTest extends TestListenerAdapter implements ITestList
             setAuthorName(methodName);
         }
         Thread.sleep(3000);
+        System.out.println("startAppiumServerInParallelTest1");
         startingServerInstance(iosCaps, androidCaps);
+        System.out.println("startAppiumServerInParallelTest2");
         startLogResults(getClass().getMethod(methodName).getName());
+        System.out.println("startAppiumServerInParallelTest3");
         return driver;
     }
 
