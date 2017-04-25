@@ -109,7 +109,7 @@ public class ParallelThread {
 
         if (operSys.contains("mac")) {
             if (configurationManager.getProperty("IOS_APP_PATH") != null ) {
-                if (IOSDeviceConfiguration.deviceUDIDiOS != null) {
+                if (iosDevice.getIOSUDID() != null) {
                     iosDevice.checkExecutePermissionForIOSDebugProxyLauncher();
                     iOSdevices = iosDevice.getIOSUDIDHash();
                     deviceCount += iOSdevices.size();
