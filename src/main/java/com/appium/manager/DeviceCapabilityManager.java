@@ -34,6 +34,17 @@ public class DeviceCapabilityManager {
                 .setCapability(MobileCapabilityType.APP,
                         configurationManager.getProperty("ANDROID_APP_PATH"));
         androidCapabilities.setCapability(MobileCapabilityType.UDID, device_udid);
+        androidCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
+        
+        AvailablePorts ap = new AvailablePorts();
+        try {
+            int port = ap.getPort();
+            androidCapabilities.setCapability(AndroidMobileCapabilityType.SYSTEM_PORT, port);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        androidCapabilities.setCapability(MobileCapabilityType.FULL_RESET, true);
         return androidCapabilities;
     }
 
@@ -65,6 +76,7 @@ public class DeviceCapabilityManager {
         iOSCapabilities
                 .setCapability(MobileCapabilityType.DEVICE_NAME,"iPhone");
         iOSCapabilities.setCapability(MobileCapabilityType.UDID, device_udid);
+        iOSCapabilities.setCapability(MobileCapabilityType.FULL_RESET, true);
         return iOSCapabilities;
     }
 }

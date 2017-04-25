@@ -99,41 +99,41 @@ public class ExtentCucumberFormatter implements Reporter, Formatter {
         if ("passed".equals(result.getStatus())) {
             appiumParallelTest.test.get().log(Status.PASS, testSteps.poll().getName());
         } else if ("failed".equals(result.getStatus())) {
-            String failed_StepName = testSteps.poll().getName();
+//            String failed_StepName = testSteps.poll().getName();
             appiumParallelTest.test.get().log(Status.FAIL, result.getErrorMessage());
-            String context = getDriver().getContext();
-            boolean contextChanged = false;
-            if ("Android".equals(getDriver().getSessionDetails().get("platformName")
-                    .toString())
-                    && !"NATIVE_APP".equals(context)) {
-                getDriver().context("NATIVE_APP");
-                contextChanged = true;
-            }
-            File scrFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
-            if (contextChanged) {
-                getDriver().context(context);
-            }
-            if (getDriver().getSessionDetails().get("platformName").toString().equals("Android")) {
-                deviceModel = androidDevice.getDeviceModel(appiumParallelTest.device_udid);
-                screenShotAndFrame(failed_StepName, scrFile, "android");
-            } else if (getDriver().getSessionDetails().get("platformName")
-                    .toString().equals("iOS")) {
-                try {
-                    deviceModel =
-                            iosDevice.getIOSDeviceProductTypeAndVersion(
-                                    appiumParallelTest.device_udid);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                screenShotAndFrame(failed_StepName, scrFile, "iPhone");
-            }
-            try {
-                attachScreenShotToReport(failed_StepName);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+//            String context = getDriver().getContext();
+//            boolean contextChanged = false;
+//            if ("Android".equals(getDriver().getSessionDetails().get("platformName")
+//                    .toString())
+//                    && !"NATIVE_APP".equals(context)) {
+//                getDriver().context("NATIVE_APP");
+//                contextChanged = true;
+//            }
+//            File scrFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
+//            if (contextChanged) {
+//                getDriver().context(context);
+//            }
+//            if (getDriver().getSessionDetails().get("platformName").toString().equals("Android")) {
+//                deviceModel = androidDevice.getDeviceModel(appiumParallelTest.device_udid);
+//                screenShotAndFrame(failed_StepName, scrFile, "android");
+//            } else if (getDriver().getSessionDetails().get("platformName")
+//                    .toString().equals("iOS")) {
+//                try {
+//                    deviceModel =
+//                            iosDevice.getIOSDeviceProductTypeAndVersion(
+//                                    appiumParallelTest.device_udid);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//                screenShotAndFrame(failed_StepName, scrFile, "iPhone");
+//            }
+//            try {
+//                attachScreenShotToReport(failed_StepName);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
         } else if ("skipped".equals(result.getStatus())) {
             appiumParallelTest.test.get().log(Status.SKIP, testSteps.poll().getName());
         } else if ("undefined".equals(result.getStatus())) {

@@ -1,6 +1,8 @@
 package com.appium.manager;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -40,5 +42,11 @@ public class ConfigurationManager {
 
     public boolean containsKey(String key) {
         return prop.containsKey(key);
+    }
+    
+    public void setProperty(String key, String value) 
+            throws FileNotFoundException, IOException {
+        prop.setProperty(key, value);
+        prop.store(new FileOutputStream("config.properties"), null);
     }
 }
