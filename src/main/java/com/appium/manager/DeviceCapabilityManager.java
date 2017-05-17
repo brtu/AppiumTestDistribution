@@ -80,6 +80,8 @@ public class DeviceCapabilityManager {
                 .setCapability(MobileCapabilityType.DEVICE_NAME,"iPhone");
         iOSCapabilities.setCapability(MobileCapabilityType.UDID, device_udid);
         iOSCapabilities.setCapability(MobileCapabilityType.FULL_RESET, true);
+        iOSCapabilities.setCapability(IOSMobileCapabilityType.SHOW_IOS_LOG, true);
+
         return iOSCapabilities;
     }
 }
