@@ -658,6 +658,7 @@ public class AppiumParallelTest extends TestListenerAdapter implements ITestList
 //        iOSCapabilities.setCapability(IOSMobileCapabilityType.XCODE_CONFIG_FILE, prop.getProperty("XCODE_CONFIG_FILE"));
 //        iOSCapabilities.setCapability("updatedWDABundleId", prop.getProperty("UPDATED_WDA_BUNDLEID"));
         iOSCapabilities.setCapability(MobileCapabilityType.FULL_RESET, true);
+        iOSCapabilities.setCapability(IOSMobileCapabilityType.SHOW_IOS_LOG, true);
         return iOSCapabilities;
     }
 
